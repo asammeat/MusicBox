@@ -1,0 +1,54 @@
+<ion-header>
+
+  <ion-navbar color="primary">
+    <ion-title style="text-align: center" >Registration</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+      <ion-row>
+        <ion-col>
+          <ion-list inset>
+
+            <ion-item>
+              <ion-input type="text" placeholder="Name" name="name" [(ngModel)]="name" required></ion-input>
+            </ion-item>
+
+            <ion-item>
+              <ion-input type="email" placeholder="Email" name="email" [(ngModel)]="email" required></ion-input>
+            </ion-item>
+
+            <ion-item>
+              <ion-input type="password" placeholder="Password" name="password" [(ngModel)]="password" required></ion-input>
+            </ion-item>
+            <p *ngIf="password && password.length < 8 "
+                    style="font-size: 12px;color: red">
+              
+                 Password's length has to be greater than 8 !!!
+            </p>
+            <ion-item>
+              <ion-input type="password" placeholder="Confirm Password" name="confirmation_password" [(ngModel)]="confirmation_password" required></ion-input>
+            </ion-item>
+
+            <p *ngIf="password != confirmation_password &&confirmation_password "
+                   style="font-size: 12px;color: red">
+              
+                Confirmation Password has to be same with Password !!!
+            </p>
+
+          </ion-list>
+        </ion-col>
+      </ion-row>
+
+      <ion-row>
+        <ion-col width-50 style="text-align: center">
+          <button  ion-button  round outline (click)="registr()" 
+            [disabled]="!name || !password || !email || !confirmation_password || password != confirmation_password ">
+            Sign up
+          </button>
+        </ion-col>
+      </ion-row>
+
+</ion-content>
