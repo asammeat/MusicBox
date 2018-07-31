@@ -6,8 +6,19 @@
  </ion-navbar>
 </ion-header>
 
-<ion-content padding center text-center>
-  <ion-title> Music Box </ion-title>
+
+<ion-content class="content" padding center text-center>
+  <br>
+  <br>
+  <br>
+
+  <ion-title class="title1" > ·.¸¸.·♩♪♫ 𝕄𝕦𝕤𝕚𝕔 𝔹𝕠𝕩 ♫♪♩·.¸¸.·</ion-title>
+    <br>
+    <br>
+    <ion-item class="myview"></ion-item>
+  <br>
+  <br>
+  <br>
   <ion-list>
     <ion-item>
       <ion-input placeholder="Username"></ion-input>
@@ -17,16 +28,20 @@
     </ion-item>
   </ion-list>
 
-  <button ion-button round> Login </button>
-  <button ion-button round outline> Register </button>
-    <br>
+  <button ion-button full round id="12345"> Login </button>
+  <br>
+  <br>
+  <br>
+
+    <ion-item text-center>
+      Don't have an account?
+      <b (click)="loginButton()" text-center text-color="primary">
+        Sign up
+      </b>
+    </ion-item>
+
+
+
 
 
 </ion-content>
-
-<footer>
-  Don't have an account?
-  <p (click)="loginButton()">
-    <b>Sign up </b>
-  </p>
-</footer>
