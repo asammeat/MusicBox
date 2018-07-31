@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, LoadingController } from 'ionic-angular';
+import { LoginPage } from '../login/login';
+import { TabsPage } from '../tabs/tabs';
 
 /**
  * Generated class for the RegistrationPage page.
@@ -18,8 +20,11 @@ export class RegistrationPage {
   name;
   email;
   password;
+  loading;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  constructor(public navCtrl: NavController, 
+              public navParams: NavParams,
+              public loadingCtrl:LoadingController) {
   }
 
   ionViewDidLoad() {
@@ -29,10 +34,18 @@ export class RegistrationPage {
 
   registr(){
     
-    console.log(this.name);
-    console.log(this.email);
-    console.log(this.password);
+    this.loading = this.loadingCtrl.create({
+      content : "Please wait ..."
+    });
+    this.loading.present();
     
+    // TODO firebase auth ile registration yapilacak
+
+    this.loading.dismiss();
+    this.navCtrl.setRoot(TabsPage);
   }
 
+  login(){
+    this.navCtrl.setRoot(LoginPage);
+  }
 }

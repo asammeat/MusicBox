@@ -17,16 +17,14 @@
     </ion-item>
   </ion-list>
 
-  <button ion-button round> Login </button>
-  <button ion-button round outline> Register </button>
+  <button ion-button round (click)="login()"> Login </button>
+  
     <br>
 
 
 </ion-content>
 
-<footer>
-  Don't have an account?
-  <p (click)="loginButton()">
-    <b>Sign up </b>
+<ion-footer>
+  <p style="text-align: center;margin-bottom: 10px;font-size: 18px">Don't have an account? <b (click)="signUp()">Sign up </b>
   </p>
-</footer>
+</ion-footer>

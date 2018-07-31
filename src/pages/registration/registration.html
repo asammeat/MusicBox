@@ -1,13 +1,21 @@
 <ion-header>
 
   <ion-navbar color="primary">
-    <ion-title style="text-align: center" >Registration</ion-title>
+    <ion-title style="text-align: center" >Sign Up</ion-title>
   </ion-navbar>
 
 </ion-header>
 
 
 <ion-content padding>
+
+  <ion-card>
+    <ion-card-header style="text-align: center;font-size: 30px">
+      Music Box
+    </ion-card-header>
+  </ion-card>
+
+  <form #loginForm="ngForm">
       <ion-row>
         <ion-col>
           <ion-list inset>
@@ -17,8 +25,15 @@
             </ion-item>
 
             <ion-item>
-              <ion-input type="email" placeholder="Email" name="email" [(ngModel)]="email" required></ion-input>
+              <ion-input type="email" email placeholder="Email" name="email" [(ngModel)]="email" required></ion-input>
             </ion-item>
+            
+            <p *ngIf="email && loginForm.form.controls.email.parent.status == 'INVALID' "
+                   style="font-size: 12px;color: red">
+              
+                Confirmation Password has to be same with Password !!!
+            </p>
+
 
             <ion-item>
               <ion-input type="password" placeholder="Password" name="password" [(ngModel)]="password" required></ion-input>
@@ -44,11 +59,20 @@
 
       <ion-row>
         <ion-col width-50 style="text-align: center">
-          <button  ion-button  round outline (click)="registr()" 
-            [disabled]="!name || !password || !email || !confirmation_password || password != confirmation_password ">
+          <button  ion-button  round outline (click)="registr(loginForm)" 
+            [disabled]="!name || !password || !email || !confirmation_password || 
+                        password != confirmation_password ">
             Sign up
           </button>
         </ion-col>
       </ion-row>
+  </form>
 
+  
 </ion-content>
+
+<ion-footer style="text-align: center;margin-bottom: 10px;font-size: 18px">
+  
+    Already have an account?<b (click)=login()>Log in</b>
+  
+</ion-footer>
