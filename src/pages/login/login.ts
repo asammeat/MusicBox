@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, LoadingController } from 'ionic-angular';
 import { RegistrationPage } from '../registration/registration';
-import { HomePage } from '../home/home';
 import { TabsPage } from '../tabs/tabs';
 import firebase from 'firebase';
 import { AngularFireDatabase } from 'angularfire2/database';
@@ -47,7 +46,7 @@ export class LoginPage {
     .then(user=>{
           console.log(user.user.uid);
           this.loading.dismiss();
-          this.navCtrl.setRoot(TabsPage,{"uid":user.user.uid});
+          this.navCtrl.setRoot(TabsPage,user.user.uid);
           
         })
     
