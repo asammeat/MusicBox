@@ -46,5 +46,4 @@ export class LoginPage {
     this.navCtrl.setRoot(RegistrationPage);
   }
 
-
 }
