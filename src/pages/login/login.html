@@ -18,14 +18,15 @@
    <br>
    <ion-list>
     <ion-item>
-      <ion-input type="email" placeholder="Email" [(ngModel)]="email"></ion-input>
+      <ion-input type="email" placeholder="Email" [(ngModel)]="email" name="em"></ion-input>
     </ion-item>
     <ion-item>
-      <ion-input placeholder="Password" type="password" [(ngModel)]="password"> </ion-input>
+      <ion-input placeholder="Password" type="password" [(ngModel)]="password" name="pw"> </ion-input>
     </ion-item>
   </ion-list>
 
-  <button ion-button round (click)="login()"> Login </button>
+  <button ion-button round outline (click)="login()"> Login 
+  </button>
   
     <br>
 
